@@ -1,6 +1,7 @@
 package com.mak.oauth2_demo;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +45,7 @@ public class SecurityConfig {
                     .permitAll() // Allows public access to the root URL
                     .requestMatchers("/menu")
                     .authenticated() // Requires authentication to access "/menu"
-                    .requestMatchers("/admin")
+                    .requestMatchers("/admin/**")
                     .hasAuthority("ADMIN")
                     .anyRequest()
                     .authenticated() // Requires authentication for any other request
@@ -74,6 +75,8 @@ public class SecurityConfig {
 
     return http.build();
   }
+
+
 //https://docs.spring.io/spring-security/reference/servlet/oauth2/login/advanced.html
   private OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
     final OidcUserService delegate = new OidcUserService();
@@ -85,6 +88,10 @@ public class SecurityConfig {
       OAuth2AccessToken accessToken = userRequest.getAccessToken();
 
       Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
+//      List<String>  roles = userService.loadRoles(oidcUser.getUserInfo().getPreferredUsername());
+//      for(String role : roles) {
+//        mappedAuthorities.add(new SimpleGrantedAuthority(role));
+//      }
       if ("testuser1".equals(oidcUser.getUserInfo().getPreferredUsername())) {
 
         mappedAuthorities.add(new SimpleGrantedAuthority("ADMIN"));
