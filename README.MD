@@ -1,3 +1,7 @@
+## Reference
+https://dev.to/bansikah/keycloak-and-spring-boot-the-ultimate-guide-to-implementing-single-sign-on-1af7
+
+
 Start the keycloak docker service using 
 `Docker compose up -d`
 
@@ -39,6 +43,5 @@ Set a username (e.g., testuser)
 In Credentials tab:
 Set a password
     Disable "Temporary"
-
 
 
