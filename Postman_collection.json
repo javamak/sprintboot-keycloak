@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "fc927219-122f-48d7-bf94-cd90092bc9b0",
+		"name": "Oauth2 Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40577983"
+	},
+	"item": [
+		{
+			"name": "Check Normal User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzVVRZcTZvc28tODlUUXdJeWhxdGgzNTRtUVY4Z1l0TnRjdmh2MTQ1RzB3In0.eyJleHAiOjE3MzQ5ODM1NjEsImlhdCI6MTczNDk4MzI2MSwianRpIjoiZjVjNzBlNzAtMjM2Ni00ZmZkLWE4YzQtNjFjMzlmYzkxZjI3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg4L3JlYWxtcy9mb29kLW9yZGVyaW5nLXJlYWxtIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjllNTU4MTViLWEzMGMtNDA0NS04YTYyLTY5ODQ0NmZlNTJlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZvb2Qtb3JkZXJpbmctY2xpZW50Iiwic2lkIjoiMjcwOWVjNzMtOGUzMS00ZWVmLTk3MzQtNzVjMjBmZTQ2YWQzIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjgwODIiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWZvb2Qtb3JkZXJpbmctcmVhbG0iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJ0c2V0IHRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0ZXN0dXNlcjEiLCJnaXZlbl9uYW1lIjoidHNldCIsImZhbWlseV9uYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSJ9.WKpGmWCpvXrBl28Oh7vR4HmTlFGt1ebkAIRvzF0fINzzA0OVbM43AzgJfhmpivqtamgZe8YM0e8MZbkHwXdgOjTwoKF3ETs_3ZYuO3OwLhm3xU4M-2HV0UFIq6X96umPAN4lrNHmL8Y9xLpVjC0Lc8RaY4MPYsOd3Y1I5bLD4sxKMLQuFB5aNRaNFMDgQ6qRudQfD5JeIiRlvG14DMmkCGojlm7uwXMOy0YbJYjRYDKM9damQcSDxmDkaYA4shaW7qjyW_L33hgAHyKjy1HApOmpMkfvLf3bjWjTjM3KmsFTVr9gkT6hT-d9ZP_Ewde4mTcCWY4GN-ZPiXBFkw3gHg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Oauth Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "food-ordering-client",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "testuser1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "testuser1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "O1mWs7jvupCxQkvPt8vcNzhG87hEETc6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/realms/food-ordering-realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"realms",
+						"food-ordering-realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/realms/myrealm/protocol/openid-connect/token' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'grant_type=password' \\\n--data-urlencode 'client_id=spring-with-keycloak' \\\n--data-urlencode 'username=user1' \\\n--data-urlencode 'password=12345'\n"
+			},
+			"response": []
+		}
+	]
+}
